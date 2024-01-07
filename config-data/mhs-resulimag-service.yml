@@ -2,7 +2,7 @@
 server:
   port: 8011
   servlet:
-    context-path: /mhs-resulimag-ms
+    context-path: /mhs-ordimag-ms
 
 spring:
   profiles:
@@ -12,15 +12,15 @@ spring:
   # DB
   # ===============================
   datasource:
-    url: jdbc:postgresql://localhost:5432/one-master
-    driverClassName: org.postgresql.Driver
-    username: ms_login
-    password: Access2024
+    url: jdbc:as400://192.168.20.3;naming=system;libraries=his061223,interlabpr;prompt=false?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Bogota
+    driver-class-name: com.ibm.as400.access.AS400JDBCDriver
+    username: HOSVITAL
+    password: HOSVITAL
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.DB2400Dialect
     properties:
       hibernate:
         show_sql: true
